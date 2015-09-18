@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :ticket do
-    title "Example project"
+    title "Example ticket"
     description "Some default description"
   end
 end
