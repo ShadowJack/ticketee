@@ -1,4 +1,5 @@
 class TicketsController < ApplicationController
+  before_action :require_signin!, except: [:show]
   before_action :set_project
   before_action :set_ticket, only: [:show, :edit, :destroy, :update]
   def new
@@ -7,6 +8,7 @@ class TicketsController < ApplicationController
 
   def create
     @ticket = @project.tickets.build(ticket_params)
+    @ticket.user = current_user
     if @ticket.save
       flash[:notice] = 'Ticket has been created.'
       redirect_to [@project, @ticket]
