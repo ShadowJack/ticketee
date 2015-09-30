@@ -6,4 +6,8 @@ module AuthenticationHelpers
     click_button 'Sign in'
     expect(page).to have_content("Signed in successfully.")
   end
+
+  def sign_in(user)
+    session[:user_id] = user.id
+  end
 end
