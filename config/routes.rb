@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  namespace :admin do
+    resources :users
+  end
+
   get 'sessions/new'
 
   get 'users/new'
