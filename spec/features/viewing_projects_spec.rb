@@ -15,4 +15,11 @@ feature "Viewing projects" do
 
     expect(page.current_url).to eql(project_url(project))
   end
+
+  scenario 'Projects that are not allowed by permissions are not visible' do
+    hidden = FactoryGirl.create(:project, name: 'Hidden')
+    visit '/'
+
+    expect(page).to_not have_content(hidden.name)
+  end
 end
