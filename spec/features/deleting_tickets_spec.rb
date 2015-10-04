@@ -9,6 +9,10 @@ feature "Deleting tickets" do
     ticket
   end
 
+  before do
+    define_permission!(user, 'view', project)
+  end
+
   scenario "Deleting a ticket" do
     sign_in_as!(user)
     visit "/"
