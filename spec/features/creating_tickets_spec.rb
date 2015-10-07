@@ -42,4 +42,16 @@ feature 'Creating Tickets' do
     expect(page).to have_content('Ticket has not been created.')
     expect(page).to have_content('Description is too short')
   end
+
+  scenario 'Creating a ticket with attachment' do
+    fill_in 'Title', with: 'Some another cool feature'
+    fill_in 'Description', with: 'So cool new feature with attachment'
+    attach_file 'File', 'spec/fixtures/speed.txt'
+    click_button 'Create Ticket'
+
+    expect(page).to have_content('Ticket has been created')
+    within('#ticket .asset') do
+      expect(page).to have_content('speed.txt')
+    end
+  end
 end
