@@ -28,7 +28,7 @@ gem 'bcrypt', '~> 3.1.7'
 # Use CanCan to manage user permissions
 gem 'cancan'
 # Use CarrierWave to handle assets upload
-gem 'carrierwave'
+gem 'carrierwave', '0.8.0'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
