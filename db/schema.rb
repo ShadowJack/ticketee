@@ -11,13 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151007211246) do
+ActiveRecord::Schema.define(version: 20151009171831) do
 
   create_table "assets", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
     t.string   "asset"
     t.integer  "ticket_id"
+    t.string   "content_type"
   end
 
   create_table "permissions", force: :cascade do |t|

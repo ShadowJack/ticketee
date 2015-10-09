@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   namespace :admin do
-  get 'permissions/index'
+    get 'permissions/index'
   end
 
   namespace :admin do
@@ -30,6 +30,8 @@ Rails.application.routes.draw do
   resources :projects do
     resources :tickets
   end
+
+  resources :files
 
   resources :users
 end
