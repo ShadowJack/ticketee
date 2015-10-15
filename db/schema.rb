@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151012182516) do
+ActiveRecord::Schema.define(version: 20151012201603) do
 
   create_table "assets", force: :cascade do |t|
     t.datetime "created_at",   null: false
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 20151012182516) do
     t.integer  "ticket_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "state_id"
   end
 
   add_index "comments", ["ticket_id"], name: "index_comments_on_ticket_id"
@@ -50,6 +51,14 @@ ActiveRecord::Schema.define(version: 20151012182516) do
     t.datetime "updated_at",  null: false
   end
 
+  create_table "states", force: :cascade do |t|
+    t.string   "name"
+    t.string   "color"
+    t.string   "background"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "tickets", force: :cascade do |t|
     t.string   "title"
     t.text     "description"
@@ -57,9 +66,11 @@ ActiveRecord::Schema.define(version: 20151012182516) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.integer  "user_id"
+    t.integer  "state_id"
   end
 
   add_index "tickets", ["project_id"], name: "index_tickets_on_project_id"
+  add_index "tickets", ["state_id"], name: "index_tickets_on_state_id"
   add_index "tickets", ["user_id"], name: "index_tickets_on_user_id"
 
   create_table "users", force: :cascade do |t|
