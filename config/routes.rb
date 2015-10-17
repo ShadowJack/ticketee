@@ -1,4 +1,16 @@
 Rails.application.routes.draw do
+  namespace :admin do
+  get 'states/index'
+  end
+
+  namespace :admin do
+  get 'states/new'
+  end
+
+  namespace :admin do
+  get 'states/create'
+  end
+
   get 'comments/create'
 
   namespace :admin do
@@ -11,6 +23,12 @@ Rails.application.routes.draw do
       resources :permissions
 
       put 'permissions', to: 'permissions#set', as: 'set_permissions'
+    end
+
+    resources :states do
+      member do
+        get :make_default
+      end
     end
   end
 

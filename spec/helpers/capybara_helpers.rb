@@ -8,4 +8,9 @@ module CapybaraHelpers
     expect(page).to have_css('a', text: text),
                     "Expected to see the #{text.inspect} link, but didn't."
   end
+
+  def state_line_for(name)
+    state = State.find_by_name name
+    "#state_#{state.id}"
+  end
 end
