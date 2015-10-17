@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151012201603) do
+ActiveRecord::Schema.define(version: 20151017093106) do
 
   create_table "assets", force: :cascade do |t|
     t.datetime "created_at",   null: false
@@ -25,9 +25,10 @@ ActiveRecord::Schema.define(version: 20151012201603) do
     t.text     "text"
     t.integer  "user_id"
     t.integer  "ticket_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
     t.integer  "state_id"
+    t.integer  "previous_state_id"
   end
 
   add_index "comments", ["ticket_id"], name: "index_comments_on_ticket_id"
