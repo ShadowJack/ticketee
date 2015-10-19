@@ -17,4 +17,5 @@ feature 'Managing states' do
 
     expect(page).to have_content('New is now the default state')
   end
+
 end
